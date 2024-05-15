@@ -1,4 +1,16 @@
 const users = require("../models/user");
+const bcrypt = require("bcryptjs");
+
+const hashPassword = async (req, res, next) => {
+    try {
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(req.body.password, salt);
+        req.body.password = hash;
+        next();
+    } catch (error) {
+        res.status(400).send({ message: "Password hashing error" });
+    }
+};
 
 const findAllUsers = async (req, res, next) => {
     req.usersArray = await users.find({});
@@ -94,4 +106,5 @@ module.exports = {
     checkEmptyNameAndEmailAndPassword,
     checkEmptyNameAndEmail,
     checkIsUserExists,
+    hashPassword,
 };
