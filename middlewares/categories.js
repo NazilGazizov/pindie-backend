@@ -47,6 +47,7 @@ const updateCategory = async (req, res, next) => {
 };
 
 const deleteCategory = async (req, res, next) => {
+    console.log("DELETE /categories/:id");
     try {
         req.category = await categories.findByIdAndDelete(req.params.id);
         next();

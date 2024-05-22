@@ -20,7 +20,6 @@ const findAllUsers = async (req, res, next) => {
 const createUser = async (req, res, next) => {
     console.log("POST /users");
     try {
-        console.log(req.body);
         req.user = await users.create(req.body);
         next();
     } catch (error) {
@@ -56,6 +55,7 @@ const updateUser = async (req, res, next) => {
 };
 
 const deleteUser = async (req, res, next) => {
+    console.log("DELETE /users/:ud");
     try {
         req.user = await users.findByIdAndDelete(req.params.id);
         next();

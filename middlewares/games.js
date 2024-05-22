@@ -61,6 +61,7 @@ const updateGame = async (req, res, next) => {
 };
 
 const deleteGame = async (req, res, next) => {
+    console.log("DELETE /games/:id");
     try {
         req.game = await games.findByIdAndDelete(req.params.id);
         next();

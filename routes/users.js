@@ -22,7 +22,7 @@ const { checkAuth } = require("../middlewares/auth");
 
 usersRouter.get("/users", findAllUsers, sendAllUsers);
 usersRouter.get("/users/:id", findUserById, sendUserById);
-usersRouter.get("/me", checkAuth, sendMe);
+usersRouter.get("/me", checkAuth, findUserById, sendMe);
 usersRouter.post(
     "/users",
     findAllUsers,
