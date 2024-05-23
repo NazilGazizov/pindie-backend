@@ -10,7 +10,6 @@ const checkAuth = (req, res, next) => {
     const token = authorization.replace("Bearer ", "");
     try {
         req.user = jwt.verify(token, "never-gonna-give-you-up");
-        req.params.id = req.user._id;
     } catch (error) {
         return res.status(401).send({ message: "Authorization required" });
     }
