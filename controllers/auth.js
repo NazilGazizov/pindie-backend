@@ -4,7 +4,6 @@ const path = require("path");
 
 const login = (req, res) => {
     const { email, password } = req.body;
-
     users
         .findUserByCredentials(email, password)
         .then((user) => {

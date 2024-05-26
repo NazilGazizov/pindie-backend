@@ -19,7 +19,6 @@ const findAllGames = async (req, res, next) => {
 const createGame = async (req, res, next) => {
     console.log("POST /games");
     try {
-        console.log(req.body);
         req.game = await games.create(req.body);
         next();
     } catch (error) {

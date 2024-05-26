@@ -17,8 +17,7 @@ authRouter.post(
     checkEmptyNameAndEmailAndPassword,
     hashPassword,
     createUser,
-    sendUserCreated,
-    login
+    sendUserCreated
 );
 
 module.exports = authRouter;
